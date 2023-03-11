@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const productSchema = new Schema({
+const activitySchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -24,13 +24,8 @@ const productSchema = new Schema({
     min: 0,
     default: 0
   },
-  category: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category',
-    required: true
-  }
 });
 
-const Product = mongoose.model('Product', productSchema);
+const Activity = mongoose.model('Activity', activitySchema);
 
-module.exports = Product;
+module.exports = Activity;

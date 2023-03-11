@@ -15,6 +15,12 @@ const userSchema = new Schema({
     required: true,
     trim: true
   },
+  username: {
+    type: String,
+    required: true,
+    max_length: 50,
+    unique: true
+  },
   email: {
     type: String,
     required: true,
@@ -25,7 +31,6 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  orders: [Order.schema]
 });
 
 // set up pre-save middleware to create password
