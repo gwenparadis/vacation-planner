@@ -1,0 +1,19 @@
+.splash-page{
+    width:100vw;
+    height:100vh;
+    background-image: url("./images/Splashpage.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity:0.75;
+    /* background-image: linear-gradient(150deg,red,green,white,black); */
+    font-family: 'Rampart One', cursive;
+    font-size: 5rem;
+    transition: font-size 2s transform 2s;
+}
+.splashpage:hover{
+    transition: all 2s;
+}
+.alert-class{
+   border-radius: 25px;
+}
+/* font-family: 'Alex Brush', cursive; */
