@@ -1,155 +1,224 @@
-const db = require('./connection');
-const { User, Product, Category } = require('../models');
+const db = require("./connection");
+const { User, Product, Category } = require("../models");
 
-db.once('open', async () => {
+db.once("open", async () => {
   await Category.deleteMany();
 
   const categories = await Category.insertMany([
-    { name: 'Food' },
-    { name: 'Household Supplies' },
-    { name: 'Electronics' },
-    { name: 'Books' },
-    { name: 'Toys' }
+    { name: "Outdoor" },
+    { name: "Ocean" },
+    { name: "Resort" },
+    { name: "Dinner" },
+    { name: "Spa" },
   ]);
 
-  console.log('categories seeded');
+  console.log("categories seeded");
 
   await Product.deleteMany();
 
   const products = await Product.insertMany([
     {
-      name: 'Tin of Cookies',
+      name: "Cabana Rental",
       description:
-        'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-      image: 'cookie-tin.jpg',
-      category: categories[0]._id,
-      price: 2.99,
-      quantity: 500
+        "Rent one of our pool-side Cabanas for up to 6 hours! Great for couples or groups looking to reserve a shady spot by one of our three Salt Water pools.",
+      image: "",
+      category: "Resort",
+      price: 250,
+      quantity: 20,
     },
     {
-      name: 'Canned Coffee',
+      name: "Vinyasa Flow",
       description:
-        'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
-      image: 'canned-coffee.jpg',
-      category: categories[0]._id,
-      price: 1.99,
-      quantity: 500
+        "Join us for a relaxing 30-minute morning yoga session by the pool. Yoga mats provided",
+      image: "",
+      category: "Resort",
+      price: 10,
+      quantity: 15,
     },
     {
-      name: 'Toilet Paper',
-      category: categories[1]._id,
+      name: "Jewelry Making",
       description:
-        'Donec volutpat erat erat, sit amet gravida justo sodales in. Phasellus tempus euismod urna. Proin ultrices nisi ut ipsum congue, vitae porttitor libero suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia a nisi non congue.',
-      image: 'toilet-paper.jpg',
-      price: 7.99,
-      quantity: 20
+        "Come look through our collection of unique sea shells, collected locally during our excursions, and learn to transform them into statement jewelry",
+      image: "",
+      category: "Resort",
+      price: 10,
+      quantity: 30,
     },
     {
-      name: 'Handmade Soap',
-      category: categories[1]._id,
+      name: "Mini Golf",
       description:
-        'Praesent placerat, odio vel euismod venenatis, lectus arcu laoreet felis, et fringilla sapien turpis vestibulum nisl.',
-      image: 'soap.jpg',
-      price: 3.99,
-      quantity: 50
+        "Reserve your spot and compete at our on-site 18-hole Mini Golf Course! One ticket required per-player",
+      image: "",
+      category: "Resort",
+      price: 10,
+      quantity: 50,
     },
     {
-      name: 'Set of Wooden Spoons',
-      category: categories[1]._id,
+      name: "Swimming with Dolphins",
       description:
-        'Vivamus ut turpis in purus pretium mollis. Donec turpis odio, semper vel interdum ut, vulputate at ex. Duis dignissim nisi vel tortor imperdiet finibus. Aenean aliquam sagittis rutrum.',
-      image: 'wooden-spoons.jpg',
-      price: 14.99,
-      quantity: 100
+        "Take a dive into our state-of-the-art Dolphin enclosure to experience the life-changing magic of these majestic ocean animals. Adventure requires a 20-minute safety biref that is included in the booking, and includes a 30-minute instructor-led swim with our trained animals.",
+      image: "",
+      category: "Ocean",
+      price: 120,
+      quantity: 20,
     },
     {
-      name: 'Camera',
-      category: categories[2]._id,
+      name: "Swimming with Sharks",
       description:
-        'Vestibulum risus metus, luctus non tortor quis, tincidunt consectetur ex. Nullam vitae lobortis ligula, ut sagittis massa. Curabitur consectetur, tellus at pulvinar venenatis, erat augue cursus erat, eu ullamcorper eros lectus ultrices ipsum. Integer rutrum, augue vitae auctor venenatis, turpis turpis elementum orci, at sagittis risus mi a leo.',
-      image: 'camera.jpg',
-      price: 399.99,
-      quantity: 30
+        "Take a cruise with our marine experts to experience the life-changing magic of these majestic ocean animals. Adventure requires a 30-minute safety biref that is included in the booking, and includes a 120-minute instructor-led boat cruise that provides 90 minutes of snorkeling in a known hangout for local sharks.",
+      image: "",
+      category: "Ocean",
+      price: 200,
+      quantity: 30,
     },
     {
-      name: 'Tablet',
-      category: categories[2]._id,
+      name: "Tropical Snorkeling Adventure",
       description:
-        'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
-      image: 'tablet.jpg',
-      price: 199.99,
-      quantity: 30
+        "Take a cruise with our marine experts to experience the life-changing magic of these majestic ocean animals. Adventure requires a 30-minute safety biref that is included in the booking, and includes a 120-minute instructor-led boat cruise that provides 90 minutes of snorkeling in a known marine-life hotspot.",
+      image: "",
+      category: "Ocean",
+      price: 150,
+      quantity: 30,
     },
     {
-      name: 'Tales at Bedtime',
-      category: categories[3]._id,
+      name: "Resort Full-Service Spa",
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
-      image: 'bedtime-book.jpg',
-      price: 9.99,
-      quantity: 100
+        "Come relax at our on-site Spa. Full-service includes your choice of massage, use of our Sauna, use of our luxury medicated hot tubs, and access to our newly renovated locker rooms. Refreshments are available for additional purchase",
+      image: "",
+      category: "Spa",
+      price: 150,
+      quantity: 30,
     },
     {
-      name: 'Spinning Top',
-      category: categories[4]._id,
-      description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
-      image: 'spinning-top.jpg',
-      price: 1.99,
-      quantity: 1000
+      name: "60-minute Full Body Massage",
+      description:
+        "Come relax at our on-site Spa. Full-service includes your choice of 60-minute massage, and access to our newly renovated locker rooms. Refreshments are available for additional purchase",
+      image: "",
+      category: "Spa",
+      price: 80,
+      quantity: 50,
     },
     {
-      name: 'Set of Plastic Horses',
-      category: categories[4]._id,
+      name: "90-minute Full Body Massage",
       description:
-        'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
-      image: 'plastic-horses.jpg',
-      price: 2.99,
-      quantity: 1000
+        "Come relax at our on-site Spa. Full-service includes your choice of 90-minute massage, and access to our newly renovated locker rooms. Refreshments are available for additional purchase",
+      image: "",
+      category: "Spa",
+      price: 120,
+      quantity: 50,
     },
     {
-      name: 'Teddy Bear',
-      category: categories[4]._id,
+      name: "60-minute Couples Massage",
       description:
-        'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
-      image: 'teddy-bear.jpg',
-      price: 7.99,
-      quantity: 100
+        "Come relax at our on-site Spa. Full-service includes your choice of 60-minute Couples massage, and access to our newly renovated locker rooms. Refreshments are available for additional purchase",
+      image: "",
+      category: "Spa",
+      price: 160,
+      quantity: 50,
     },
     {
-      name: 'Alphabet Blocks',
-      category: categories[4]._id,
+      name: "90-minute Full Body Massage",
       description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      image: 'alphabet-blocks.jpg',
-      price: 9.99,
-      quantity: 600
-    }
+        "Come relax at our on-site Spa. Full-service includes your choice of 60-minute Couples massage, and access to our newly renovated locker rooms. Refreshments are available for additional purchase",
+      image: "",
+      category: "Spa",
+      price: 250,
+      quantity: 50,
+    },
+    {
+      name: "Dinner Reservation -- Italian",
+      description:
+        "Place a deposit to reserve a table for 2-20 guests at the Italian restaurant. Deposit is applied to your bill total at the end of the meal, and is not an additional fee.",
+      image: "",
+      category: "Dinner",
+      price: 50,
+      quantity: 5,
+    },
+    {
+      name: "Dinner Reservation -- Mexican",
+      description:
+        "Place a deposit to reserve a table for 2-20 guests at the Mexican restaurant. Deposit is applied to your bill total at the end of the meal, and is not an additional fee.",
+      image: "",
+      category: "Dinner",
+      price: 50,
+      quantity: 10,
+    },
+    {
+      name: "Dinner Reservation -- Waterfront Seafood",
+      description:
+        "Place a deposit to reserve a table for 2-20 guests at the waterfront Seafood restaurant. Deposit is applied to your bill total at the end of the meal, and is not an additional fee.",
+      image: "",
+      category: "Dinner",
+      price: 75,
+      quantity: 5,
+    },
+    {
+      name: "Dinner Reservation -- Hibachi",
+      description:
+        "Place a deposit to reserve a table for 2-20 guests at the Hibachi restaurant. Deposit is applied to your bill total at the end of the meal, and is not an additional fee.",
+      image: "",
+      category: "Dinner",
+      price: 50,
+      quantity: 8,
+    },
+    {
+      name: "Guided Beach Tour",
+      description:
+        "Get your steps in while your tour the lush coastlines around our resort! Learn about the local ecosystem and explore the intricacies of our local area.",
+      category: "Outdoor",
+      price: 20,
+      quantity: 25,
+    },
+    {
+      name: "Guided Hike (Beginner)",
+      description:
+        "Get your steps in while your tour the lush coastlines around our resort! Learn about the local ecosystem and explore the intricacies of our local area.",
+      category: "Outdoor",
+      price: 20,
+      quantity: 25,
+    },
+    {
+      name: "Guided Hike (Intermediate)",
+      description:
+        "Get your steps in while you enjoy the more rugged terrain in our area! Sites include: waterfalls, local vegetation, and even a few animal sightings! Learn about the local ecosystem and explore the intricacies of our local area. Hike length: 6 miles. Lunch provided.",
+      category: "Outdoor",
+      price: 45,
+      quantity: 25,
+    },
+    {
+      name: "Beach Front Horseback Riding",
+      description:
+        "Spend a magical afternoon riding one of our incredible hourses. Tours available for 2-10 guests per group. Experience includes a 30-minute safety briefing and 80-minute ride down the local coastline. Youth under 8 years of age not permitted.",
+      category: "Outdoor",
+      price: 150,
+      quantity: 10,
+    },
   ]);
 
-  console.log('products seeded');
+  console.log("products seeded");
 
   await User.deleteMany();
 
   await User.create({
-    firstName: 'Pamela',
-    lastName: 'Washington',
-    email: 'pamela@testmail.com',
-    password: 'password12345',
+    firstName: "Pamela",
+    lastName: "Washington",
+    email: "pamela@testmail.com",
+    password: "password12345",
     orders: [
       {
-        products: [products[0]._id, products[0]._id, products[1]._id]
-      }
-    ]
+        products: [products[0]._id, products[0]._id, products[1]._id],
+      },
+    ],
   });
 
   await User.create({
-    firstName: 'Elijah',
-    lastName: 'Holt',
-    email: 'eholt@testmail.com',
-    password: 'password12345'
+    firstName: "Elijah",
+    lastName: "Holt",
+    email: "eholt@testmail.com",
+    password: "password12345",
   });
 
-  console.log('users seeded');
+  console.log("users seeded");
 
   process.exit();
 });
