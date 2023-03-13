@@ -2,27 +2,40 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Eventsavailable from './Eventsavailable';
 
-function AutoLayoutExample() {
+function Profile() {
+    //useEffec - me
+    const addEvent = (event) => {
+        console.log(event)
+        //Add it SAVE_EVENT mutation
+    }
     return (
         <Container>
             <Row>
-                <Col>First Name ({firstName})</Col>
-                <Col>2 of 2</Col>
-            </Row>
-            <Row>
-                <Col>Last Name ({lastName})</Col>
-                <Col>2 of 2</Col>
-            </Row>
-            <Row>
-                <Col>email ({email})</Col>
-                <Col>2 of 2</Col>
+                <Col  xs={10}>
+                    <h4>Guest Name :</h4>
+                    <p>Party of : <span>2</span></p>
+                    <p>Email :<span></span></p>
+
+                    <Row>
+
+                        <Col>
+                            <Eventsavailable addEvent={addEvent} />
+                        </Col>
+                    </Row>
+                </Col>
+                <Col>
+                    <h3>Activities Selected</h3>
+
+                </Col>
             </Row>
         </Container>
     );
 }
-export default AutoLayoutExample;
+export default Profile;
 
+   
 
 // export default function Profile() {
 //     return (
