@@ -14,6 +14,14 @@ const activitySchema = new Schema({
   image: {
     type: String
   },
+  activityDate: {
+    type: Date,
+    required: true,
+  },
+  activityTime: {
+    type: TimeRanges,
+    required: true,
+  },
   price: {
     type: Number,
     required: true,
