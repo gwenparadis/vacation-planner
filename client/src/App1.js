@@ -32,14 +32,25 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
+const navItems = [{
+  title: "Order History", //we can rename any of these based on anything else we need in the nav bar
+  link: "/orderhistory",
+  title: "Logout",
+  link: "/logout",
+  title: "Signup",
+  link: "/signup",
+  title: "Login",
+  link: "/login",
+}]
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
         <div>
           <StoreProvider>
-            <Nav />
+            <Nav
+            routes={navItems}
+            />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
