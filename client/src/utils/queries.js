@@ -1,17 +1,17 @@
 import { gql } from "@apollo/client";
 
-export const QUERY_ACTIVITY = gql`
-  query getActivity($name: ID) {
-    activities(name: $name) {
-      _id
-      name
-      description
-      price
-      quantity
-      image
-    }
-  }
-`;
+// export const QUERY_ACTIVITY = gql`
+//   query getActivity($name: ID) {
+//     activity(name: $name) {
+//       _id
+//       name
+//       description
+//       price
+//       quantity
+//       image
+//     }
+//   }
+// `;
 
 export const QUERY_CHECKOUT = gql`
   query getCheckout($activities: [ID]!) {
@@ -22,7 +22,7 @@ export const QUERY_CHECKOUT = gql`
 `;
 
 export const QUERY_ALL_ACTIVITIES = gql`
-  {
+  query getAllActivities {
     activities {
       _id
       name

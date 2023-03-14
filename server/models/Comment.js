@@ -1,8 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const commentSchema = new Schema({
+const commentSchema = new Schema(
+  {
     commentText: {
       type: String,
       required: true,
@@ -12,18 +13,20 @@ const commentSchema = new Schema({
     createdAt: {
       type: Date,
       default: Date.now(),
-      get: timestamp => {
+      get: (timestamp) => {
         const date = new Date();
-        return date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear()
-      }
+        return (
+          date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear()
+        );
+      },
     },
     username: {
       type: String,
       required: true,
     },
-    reactions: [
-      reactionSchema
-    ],
+    // reactions: [
+    //   reactionSchema
+    // ],
   },
   {
     toJSON: {
@@ -33,6 +36,6 @@ const commentSchema = new Schema({
   }
 );
 
-const Comment = mongoose.model('Comment', commentSchema);
+const Comment = mongoose.model("Comment", commentSchema);
 
 module.exports = Comment;
