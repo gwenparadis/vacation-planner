@@ -18,10 +18,6 @@ const activitySchema = new Schema({
     type: Date,
     required: true,
   },
-  activityTime: {
-    type: String,
-    required: true,
-  },
   price: {
     type: Number,
     required: true,

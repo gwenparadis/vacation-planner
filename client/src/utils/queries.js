@@ -1,49 +1,34 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
-export const QUERY_PRODUCTS = gql`
-  query getProducts($category: ID) {
-    products(category: $category) {
+export const QUERY_ACTIVITY = gql`
+  query getActivity($name: ID) {
+    activities(name: $name) {
       _id
       name
       description
       price
       quantity
       image
-      category {
-        _id
-      }
     }
   }
 `;
 
 export const QUERY_CHECKOUT = gql`
-  query getCheckout($products: [ID]!) {
-    checkout(products: $products) {
+  query getCheckout($activities: [ID]!) {
+    checkout(activities: $activities) {
       session
     }
   }
 `;
 
-export const QUERY_ALL_PRODUCTS = gql`
+export const QUERY_ALL_ACTIVITIES = gql`
   {
-    products {
+    activities {
       _id
       name
       description
       price
       quantity
-      category {
-        name
-      }
-    }
-  }
-`;
-
-export const QUERY_CATEGORIES = gql`
-  {
-    categories {
-      _id
-      name
     }
   }
 `;
@@ -56,7 +41,7 @@ export const QUERY_USER = gql`
       orders {
         _id
         purchaseDate
-        products {
+        activities {
           _id
           name
           description
