@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
@@ -6,34 +6,30 @@ const activitySchema = new Schema({
   name: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
   description: {
-    type: String
+    type: String,
   },
   image: {
-    type: String
+    type: String,
   },
   activityDate: {
     type: Date,
     required: true,
   },
-  activityTime: {
-    type: TimeRanges,
-    required: true,
-  },
   price: {
     type: Number,
     required: true,
-    min: 0.99
+    min: 0.99,
   },
   quantity: {
     type: Number,
     min: 0,
-    default: 0
+    default: 0,
   },
 });
 
-const Activity = mongoose.model('Activity', activitySchema);
+const Activity = mongoose.model("Activity", activitySchema);
 
-module.exports = Activity;
+module.exports = {Activity, activitySchema};

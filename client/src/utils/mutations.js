@@ -18,7 +18,7 @@ export const ADD_ORDER = gql`
       activities {
         _id
         name
-        description
+        activityDate
         price
         quantity
       }
