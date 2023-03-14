@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_ACTIVITY } from "../utils/queries";
+import { QUERY_ACTIVITIES } from "../utils/queries";
 
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
@@ -13,8 +13,7 @@ const activities = [
     description:
       "Come relax at our on-site Spa. Full-service includes your choice of 90-minute massage, and access to our newly renovated locker rooms. Refreshments are available for additional purchase",
     image: "",
-    activityDate: 3 / 22 / 2023,
-    activityTime: 1300,
+    activityDate: "2023-05-15T13:00:00",
     price: 120,
     quantity: 50,
   },
@@ -23,8 +22,7 @@ const activities = [
     description:
       "Come relax at our on-site Spa. Full-service includes your choice of 60-minute Couples massage, and access to our newly renovated locker rooms. Refreshments are available for additional purchase",
     image: "",
-    activityDate: 3 / 22 / 2023,
-    activityTime: 1300,
+    activityDate: "2023-05-15T13:00:00",
     price: 160,
     quantity: 50,
   },
@@ -33,8 +31,7 @@ const activities = [
     description:
       "Come relax at our on-site Spa. Full-service includes your choice of 60-minute Couples massage, and access to our newly renovated locker rooms. Refreshments are available for additional purchase",
     image: "",
-    activityDate: 3 / 22 / 2023,
-    activityTime: 1300,
+    activityDate: "2023-05-15T13:00:00",
     price: 250,
     quantity: 50,
   },
@@ -62,7 +59,6 @@ const activityList = (/*{ activities }*/) => {
               <Card.Text>Description:{activity.description}</Card.Text>
               <Card.Text>
                 Activity Date: {activity.activityDate}
-                Activity Time: {activity.activityTime}
                 Price: {activity.price}
                 Tickets Available: {activity.quantity}
               </Card.Text>
