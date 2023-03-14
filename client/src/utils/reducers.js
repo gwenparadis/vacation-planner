@@ -12,7 +12,7 @@ import {
 // The reducer is a function that accepts the current state and an action. It returns a new state based on that action.
 export const reducer = (state, action) => {
   switch (action.type) {
-    // Returns a copy of state with an update products array. We use the action.products property and spread it's contents into the new array.
+    // Returns a copy of state with an update activities array. We use the action.activities property and spread it's contents into the new array.
     case UPDATE_ACTIVITIES:
       return {
         ...state,
@@ -44,7 +44,7 @@ export const reducer = (state, action) => {
         }),
       };
 
-    // First we iterate through each item in the cart and check to see if the `product._id` matches the `action._id`
+    // First we iterate through each item in the cart and check to see if the `activity._id` matches the `action._id`
     // If so, we remove it from our cart and set the updated state to a variable called `newState`
     case REMOVE_FROM_CART:
       let newState = state.cart.filter((activity) => {
@@ -79,6 +79,6 @@ export const reducer = (state, action) => {
   }
 };
 
-export function useProductReducer(initialState) {
+export function useActivityReducer(initialState) {
   return useReducer(reducer, initialState);
 }
