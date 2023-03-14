@@ -46,7 +46,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/activity" element={<Activities />} />
+              <Route path="/activities" element={<Activities />} />
             </Routes>
           </StoreProvider>
         </div>
