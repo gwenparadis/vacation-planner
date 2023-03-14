@@ -2,17 +2,24 @@ import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 
-function Nav() {
+function Nav({routes}) {
 
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/orderHistory">
-              Order History
-            </Link>
-          </li>
+          {
+            routes.map(r => (
+              <li className="mx-1">
+              <Link to={r.link}>
+                {r.title}
+              </Link>
+            </li>
+
+            ))
+
+          }
+         
           <li className="mx-1">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
