@@ -11,7 +11,6 @@ import "./App.css";
 
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-import Activities from "./pages/Activities";
 import Nav from "./components/Nav";
 import { StoreProvider } from "./utils/GlobalState";
 
@@ -46,7 +45,6 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/activity" element={<Activities />} />
             </Routes>
           </StoreProvider>
         </div>
