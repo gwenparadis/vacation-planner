@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/client";
-import { QUERY_ACTIVITIES } from "../utils/queries";
+// import { Link } from "react-router-dom";
+// import { useQuery } from "@apollo/client";
+// import { QUERY_ACTIVITIES } from "../utils/queries";
 
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
