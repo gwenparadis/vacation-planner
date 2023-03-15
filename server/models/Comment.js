@@ -2,35 +2,28 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const commentSchema = new Schema(
-  {
-    commentText: {
-      type: String,
-      required: true,
-      minLength: 1,
-      maxLength: 300,
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now(),
-      get: (timestamp) => {
-        const date = new Date();
-        return (
-          date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear()
-        );
-      },
-    },
-    username: {
-      type: String,
-      required: true,
+const commentSchema = new Schema({
+  commentText: {
+    type: String,
+    required: true,
+    minLength: 1,
+    maxLength: 300,
   },
-  {
-    toJSON: {
-      virtuals: true,
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+    get: (timestamp) => {
+      const date = new Date();
+      return (
+        date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear()
+      );
     },
-    id: false,
-  }
-);
+  },
+  username: {
+    type: String,
+    required: true,
+  },
+});
 
 const Comment = mongoose.model("Comment", commentSchema);
 
