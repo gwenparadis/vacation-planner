@@ -2,8 +2,8 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useQuery } from "@apollo/client";
-import { GET_PROFILE } from "../utils/queries";
+// import { useQuery } from "@apollo/client";
+// import { GET_PROFILE } from "../utils/queries";
 
 function Profile() {
   // const { loading, data: { getProfile = [] } = {} } = useQuery(GET_PROFILE);
@@ -17,9 +17,9 @@ function Profile() {
     <Container>
       <Row>
         <Col xs={10}>
-          <h4>Guest Name :</h4>
+          <h4>Guest Name:</h4>
           <p>
-            Email :<span></span>
+            Email:<span></span>
           </p>
         </Col>
         <Col>

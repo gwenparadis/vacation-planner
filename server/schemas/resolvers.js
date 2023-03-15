@@ -16,16 +16,16 @@ const resolvers = {
       }
     },
 
-    getProfile: async (parent, args, context) => {
-      try {
-        const profile = await User.findOne({});
-        console.log(profile);
+    //   getProfile: async (parent, args, context) => {
+    //     try {
+    //       const profile = await User.findOne({});
+    //       console.log(profile);
 
-        return profile || [];
-      } catch (err) {
-        console.log(`Error in getAllActivities!: ${err}`);
-      }
-    },
+    //       return profile || [];
+    //     } catch (err) {
+    //       console.log(`Error in getAllActivities!: ${err}`);
+    //     }
+    //   },
   },
 
   Mutation: {
