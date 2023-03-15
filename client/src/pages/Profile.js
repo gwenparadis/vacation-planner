@@ -2,31 +2,25 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Eventsavailable from "./Activities";
+import { useQuery } from "@apollo/client";
+import { GET_PROFILE } from "../utils/queries";
 
 function Profile() {
-  //useEffec - me
-  const addEvent = (event) => {
-    console.log(event);
-    //Add it SAVE_EVENT mutation
-  };
+  const { loading, data: { getProfile = [] } = {} } = useQuery(GET_PROFILE);
+  //const profile = data?.profile || [];
+
+  if (!getProfile.length) {
+    return <h3>Log in to see your User Profile and saved Itinerary!</h3>;
+  }
+
   return (
     <Container>
       <Row>
         <Col xs={10}>
           <h4>Guest Name :</h4>
           <p>
-            Party of : <span>2</span>
-          </p>
-          <p>
             Email :<span></span>
           </p>
-
-          <Row>
-            <Col>
-              <Eventsavailable addEvent={addEvent} />
-            </Col>
-          </Row>
         </Col>
         <Col>
           <h3>Activities Selected</h3>
