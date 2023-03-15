@@ -6,7 +6,7 @@ import { QUERY_ALL_ACTIVITIES } from "../utils/queries";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-const ActivityList = (/*{ activities }*/) => {
+const ActivityList = () => {
   const { loading, data: { getAllActivities = [] } = {} } =
     useQuery(QUERY_ALL_ACTIVITIES);
   //const activities = data?.activities || [];
