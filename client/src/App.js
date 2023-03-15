@@ -11,6 +11,9 @@ import "./App.css";
 
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import Activities from "./pages/Activities";
+import Login from "./pages/Login"
+import Signup from "./pages/Signup"
 import Nav from "./components/Nav";
 import Activities from "./pages/Activities";
 import { StoreProvider } from "./utils/GlobalState";
@@ -47,7 +50,9 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/activities" element={<Activities />} />
-            </Routes>
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              </Routes>
           </StoreProvider>
         </div>
       </Router>
