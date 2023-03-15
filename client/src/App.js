@@ -51,7 +51,6 @@ function App() {
               <Route path="/activity" element={<Activities />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-
             </Routes>
           </StoreProvider>
         </div>
