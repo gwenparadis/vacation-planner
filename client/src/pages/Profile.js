@@ -6,12 +6,12 @@ import { useQuery } from "@apollo/client";
 import { GET_PROFILE } from "../utils/queries";
 
 function Profile() {
-  const { loading, data: { getProfile = [] } = {} } = useQuery(GET_PROFILE);
-  //const profile = data?.profile || [];
+  // const { loading, data: { getProfile = [] } = {} } = useQuery(GET_PROFILE);
+  // const profile = data?.profile || [];
 
-  if (!getProfile.length) {
-    return <h3>Log in to see your User Profile and saved Itinerary!</h3>;
-  }
+  // if (!getProfile.length) {
+  //   return <h3>Log in to see your User Profile and saved Itinerary!</h3>;
+  // }
 
   return (
     <Container>
