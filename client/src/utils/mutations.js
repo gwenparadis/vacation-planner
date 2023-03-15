@@ -46,3 +46,24 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const SAVE_ACTIVITY = gql`
+  mutation saveActivity(
+    $_id: String!
+    $name: String!
+    $activityDate: String!
+    $price: Number
+  ) {
+    saveActivity(
+      _id: $_id
+      name: $name
+      activityDate: $activityDate
+      price: $price
+    ) {
+      _id
+      name
+      activityDate
+      price
+    }
+  }
+`;

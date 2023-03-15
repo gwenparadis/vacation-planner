@@ -8,6 +8,7 @@ const typeDefs = gql`
     lastName: String
     username: String
   }
+
   type GetAllActivities {
     _id: ID
     name: String
@@ -17,6 +18,15 @@ const typeDefs = gql`
     price: Int
     quantity: Int
   }
+
+  # type GetProfile {
+  #   _id: ID
+  #     firstName: String
+  #     lastName: String
+  #     username: String
+  #     activities: [savedActivities]
+  # }
+
   type Checkout {
     session: ID
   }

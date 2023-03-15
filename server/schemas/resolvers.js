@@ -15,6 +15,17 @@ const resolvers = {
         console.log(`Error in getAllActivities!: ${err}`);
       }
     },
+
+    //   getProfile: async (parent, args, context) => {
+    //     try {
+    //       const profile = await User.findOne({});
+    //       console.log(profile);
+
+    //       return profile || [];
+    //     } catch (err) {
+    //       console.log(`Error in getAllActivities!: ${err}`);
+    //     }
+    //   },
   },
 
   Mutation: {

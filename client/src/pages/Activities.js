@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ALL_ACTIVITIES } from "../utils/queries";
+// import { SAVE_ACTIVITY } from "../utils/mutations";
 
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -15,8 +16,28 @@ const ActivityList = () => {
     return <h3>No activities available at this time!</h3>;
   }
 
+  // const [saveActivity, { error }] = useMutation(SAVE_ACTIVITY);
+
+  // const handleActivity = async (activity) => {
+  //   try {
+  //     await saveActivity({
+  //       variables: {
+  //         _id: activity._id,
+  //         name: activity.name,
+  //         activityDate: activity.activityDate,
+  //         price: activity.price,
+  //       },
+  //     });
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+
   return (
     <div>
+      <Link to="/profile">
+        <button className="btn btn-lg btn-danger">View My Intinerary</button>
+      </Link>
       {getAllActivities &&
         getAllActivities.map((activity) => (
           <Card key={activity._id}>
@@ -35,12 +56,12 @@ const ActivityList = () => {
             </Card.Body>
             <Card.Footer>
               <Button
-                // onClick={() => props.addEvent(activity)}
+                // onClick={() => handleActivity()}
                 variant="primary"
                 size="lg"
                 active
               >
-                View Activity
+                Save Activity to My Itinerary
               </Button>
             </Card.Footer>
           </Card>

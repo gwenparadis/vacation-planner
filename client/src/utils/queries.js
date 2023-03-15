@@ -27,14 +27,15 @@ export const QUERY_ALL_ACTIVITIES = gql`
       _id
       name
       description
+      activityDate
       price
       quantity
     }
   }
 `;
 
-export const QUERY_USER = gql`
-  {
+export const GET_PROFILE = gql`
+  query getUser {
     user {
       firstName
       lastName
