@@ -1,4 +1,5 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
+const Activity = require("./");
 
 const typeDefs = gql`
   type User {
@@ -7,11 +8,14 @@ const typeDefs = gql`
     lastName: String
     username: String
   }
-  type getAllActivities {
+  type GetAllActivities {
     _id: ID
-    firstName: String
-    lastName: String
-    
+    name: String
+    description: String
+    image: String
+    activityDate: String
+    price: Int
+    quantity: Int
   }
   type Checkout {
     session: ID
@@ -23,13 +27,18 @@ const typeDefs = gql`
   }
 
   type Query {
-    getAllActivities: String
+    getAllActivities: [GetAllActivities]
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addUser(
+      firstName: String!
+      lastName: String!
+      email: String!
+      password: String!
+    ): Auth
     login(email: String!, password: String!): Auth
-    saveActivity(newActivites: input): User
+    saveActivity(activity: String!): User
     removeActivity(name: ID!): User
   }
 `;

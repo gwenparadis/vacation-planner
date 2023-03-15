@@ -11,8 +11,8 @@ import "./App.css";
 
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-import Activities from "./pages/Activities";
 import Nav from "./components/Nav";
+import Activities from "./pages/Activities";
 import { StoreProvider } from "./utils/GlobalState";
 
 // Construct our main GraphQL API endpoint
