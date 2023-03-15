@@ -15,7 +15,7 @@ import Activities from "./pages/Activities";
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import Nav from "./components/Nav";
-import Activities from "./pages/Activities";
+import activities from "./pages/Activities";
 import { StoreProvider } from "./utils/GlobalState";
 
 // Construct our main GraphQL API endpoint
