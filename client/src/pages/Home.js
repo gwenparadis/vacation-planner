@@ -7,7 +7,7 @@ const Home = () => {
     function () {
       setTimeout(function () {
         setDisplayButton(false);
-      }, 2000);
+      }, 4000);
     },
     [displayButton]
   );
@@ -16,11 +16,11 @@ const Home = () => {
     <div className="splash-page d-flex justify-content-center align-items-center">
       {displayButton ? (
         <Alert key="info" variant="info" className="alert-class">
-          Welcome to your Stay
+          Welcome to your dream vacation!
         </Alert>
       ) : (
         <Button variant="primary" size="lg">
-          Press here to plan your stay!
+          Click here to plan your stay!
         </Button>
       )}
     </div>

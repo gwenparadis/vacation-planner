@@ -33,28 +33,27 @@ function Login(props) {
 
   return (
     <div className="login">
-      <Link to="/signup">← Go to Signup</Link>
-
-      <h2>Login</h2>
+      {/* <Link to="/signup">← Go to Signup</Link> */}
       <form onSubmit={handleFormSubmit}>
-    
-      <Form.Group className="login-form" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
+        <h2>Welcome Back!</h2>
+        <Form.Group className="login-form" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Remember me" />
-      </Form.Group>
-      <Button variant="warning display-center" type="submit">
-        Submit
-      </Button>
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Check type="checkbox" label="Remember me" />
+        </Form.Group>
+        <Link to="/signup">Create new account </Link>
+        <Button variant="warning display-center" type="submit">
+          Submit
+        </Button>
         {error ? (
           <div>
             <p className="error-text">The provided credentials are incorrect</p>
