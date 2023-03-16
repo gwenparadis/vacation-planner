@@ -14,18 +14,11 @@ function Profile() {
   // }
 
   return (
-    <Container>
-      <Row>
-        <Col xs={10}>
-          <h4>Guest Name:</h4>
-          <p>
-            Email:<span></span>
-          </p>
-        </Col>
-        <Col>
-          <h3>Activities Selected</h3>
-        </Col>
-      </Row>
+    <Container className="p-5">
+      <h1>(user.firstName) (user.lastName)</h1>
+      <p>(user.email)</p>
+      <h3>Activities Selected</h3>
+      <li>(user.savedActivities)</li>
     </Container>
   );
 }

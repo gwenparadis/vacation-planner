@@ -1,5 +1,4 @@
 const { gql } = require("apollo-server-express");
-const Activity = require("./");
 
 const typeDefs = gql`
   type User {
@@ -32,13 +31,13 @@ const typeDefs = gql`
   activities: String
   }
 
-  # type GetProfile {
-  #   _id: ID
-  #     firstName: String
-  #     lastName: String
-  #     username: String
-  #     activities: [savedActivities]
-  # }
+  type GetProfile {
+    _id: ID
+      firstName: String
+      lastName: String
+      username: String
+      savedActivities: [savedActivities]
+  }
 
   type Checkout {
     session: ID

@@ -35,7 +35,7 @@ export const QUERY_ALL_ACTIVITIES = gql`
 `;
 
 export const GET_PROFILE = gql`
-  query getUser {
+  query getProfile {
     user {
       firstName
       lastName
