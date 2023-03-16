@@ -35,10 +35,8 @@ function Signup(props) {
   return (
     <div className="signin">
       {/* <Link to="/login">Return to Login</Link> */}
-
       <form onSubmit={handleFormSubmit}>
         <h2>Signup now! It's quick and easy</h2>
-
         <Form.Group className="signup-form" controlId="">
           <Form.Label>First name</Form.Label>
           <Form.Control type="first-name" placeholder="First name" />
@@ -64,11 +62,11 @@ function Signup(props) {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Remember me" />
         </Form.Group>
-        
+
         <div className="flex-row flex-end">
           <button type="submit">Submit</button>
           <Link to="/login">Return to Login</Link>
-          
+
         </div>
       </form>
     </div>
