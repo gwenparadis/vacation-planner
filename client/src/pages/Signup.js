@@ -5,6 +5,7 @@ import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card';
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -34,9 +35,10 @@ function Signup(props) {
 
   return (
     <div className="signin">
+      <Card className="m-2 p-5 text-black" style={{ width: '38rem' }}>
       {/* <Link to="/login">Return to Login</Link> */}
-      <form onSubmit={handleFormSubmit}>
-        <h2>Signup now! It's quick and easy</h2>
+      <form className="signup-form" onSubmit={handleFormSubmit}>
+        <h2 className="text-center">Signup now! It's quick and easy</h2>
         <Form.Group className="signup-form" controlId="">
           <Form.Label>First name</Form.Label>
           <Form.Control type="first-name" placeholder="First name" />
@@ -49,7 +51,7 @@ function Signup(props) {
           <Form.Text className="text-muted">
           </Form.Text>
         </Form.Group>
-        <Form.Group className="login-form" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="youremail@test.com" />
           <Form.Text className="text-muted">
@@ -63,12 +65,14 @@ function Signup(props) {
           <Form.Check type="checkbox" label="Remember me" />
         </Form.Group>
 
-        <div className="flex-row flex-end">
+        <div className="d-flex justify-content-between">
           <button type="submit">Submit</button>
-          <Link to="/login">Return to Login</Link>
+        <Link to="/login">Return to Login</Link>
 
         </div>
       </form>
+      </Card>
+
     </div>
   );
 }
