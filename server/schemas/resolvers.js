@@ -5,14 +5,14 @@ const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
 const resolvers = {
   Query: {
-    getAllActivities: async (parent, args, context) => {
+    getActivities: async (parent, args, context) => {
       try {
         const activities = await Activity.find({});
         console.log(activities);
 
         return activities || [];
       } catch (err) {
-        console.log(`Error in getAllActivities!: ${err}`);
+        console.log(`Error in activities!: ${err}`);
       }
     },
 

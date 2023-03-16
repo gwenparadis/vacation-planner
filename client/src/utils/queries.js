@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_ACTIVITY = gql`
-  query getActivity($name: ID) {
+  query Activity($name: ID) {
     activity(name: $name) {
       _id
       name
@@ -22,8 +22,8 @@ export const QUERY_CHECKOUT = gql`
 `;
 
 export const QUERY_ALL_ACTIVITIES = gql`
-  query getAllActivities {
-    getAllActivities {
+  query getActivities {
+    getActivities {
       _id
       name
       description
@@ -35,7 +35,7 @@ export const QUERY_ALL_ACTIVITIES = gql`
 `;
 
 export const GET_PROFILE = gql`
-  query getProfile {
+  query Profile {
     user {
       firstName
       lastName
