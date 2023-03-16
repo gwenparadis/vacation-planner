@@ -33,6 +33,13 @@ const userSchema = new Schema({
     minlength: 5,
   },
   savedActivities: [activitySchema],
+  orders: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Order',
+    },
+  ],
+
 });
 
 // set up pre-save middleware to create password
