@@ -55,3 +55,13 @@
     background-image: url("./images/signuppage.jpg");
     color: rgb(248, 248, 243);
   }
+
+  .login-form{
+    width: 95%;
+    text-align: left;
+  }
+
+  .signup-form{
+    width: 100%;
+    text-align: left;
+  }
