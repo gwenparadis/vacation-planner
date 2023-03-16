@@ -8,11 +8,11 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 const ActivityList = () => {
-  const { loading, data: { getAllActivities = [] } = {} } =
+  const { loading, data: { getActivities = [] } = {} } =
     useQuery(QUERY_ALL_ACTIVITIES);
   //const activities = data?.activities || [];
 
-  if (!getAllActivities.length) {
+  if (!getActivities.length) {
     return <h3>No activities available at this time!</h3>;
   }
 
@@ -38,8 +38,8 @@ const ActivityList = () => {
       <Link to="/profile">
         <button className="btn btn-lg btn-danger">View My Intinerary</button>
       </Link>
-      {getAllActivities &&
-        getAllActivities.map((activity) => (
+      {getActivities &&
+        getActivities.map((activity) => (
           <Card key={activity._id}>
             <Card.Img
               variant="top"
