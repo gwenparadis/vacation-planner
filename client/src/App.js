@@ -15,6 +15,7 @@ import Activities from "./pages/Activities";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import { StoreProvider } from "./utils/GlobalState";
 
 // Construct our main GraphQL API endpoint
@@ -52,6 +53,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
             </Routes>
+            <Footer />
           </StoreProvider>
         </div>
       </Router>

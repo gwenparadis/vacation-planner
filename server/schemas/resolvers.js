@@ -16,27 +16,27 @@ const resolvers = {
       }
     },
 
-      getProfile: async (parent, args, context) => {
-        try {
-          const profile = await User.findOne({_id: context.user._id});
-          console.log(profile);
+    getProfile: async (parent, args, context) => {
+      try {
+        const profile = await User.findOne({ _id: context.user._id });
+        console.log(profile);
 
-          return profile || [];
-        } catch (err) {
-          console.log(`Error in getAllActivities!: ${err}`);
-        }
-      },
+        return profile || [];
+      } catch (err) {
+        console.log(`Error in getProfile!: ${err}`);
+      }
+    },
 
     getOrder: async (parent, args, context) => {
-          try {
-            const order = await Order.findOne({_id: context.order_id});
-            console.log(order);
-  
-            return order || [];
-          } catch (err) {
-            console.log(`Error in getOrder!: ${err}`);
-          }
-        },
+      try {
+        const order = await Order.findOne({ _id: context.order_id });
+        console.log(order);
+
+        return order || [];
+      } catch (err) {
+        console.log(`Error in getOrder!: ${err}`);
+      }
+    },
   },
 
   Mutation: {
