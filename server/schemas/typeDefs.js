@@ -17,6 +17,19 @@ const typeDefs = gql`
     activityDate: String
     price: Int
     quantity: Int
+    comments: Comment
+  }
+
+  type Comment {
+    _id: ID
+    commentText: String
+    createdAt: String
+  }
+
+  type Order {
+  _id: ID
+  purchaseDate: String
+  activities: String
   }
 
   # type GetProfile {
@@ -50,6 +63,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     saveActivity(activity: String!): User
     removeActivity(name: ID!): User
+    addToOrder:(orders: GetAllActivities): User
   }
 `;
 

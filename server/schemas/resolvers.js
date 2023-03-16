@@ -16,16 +16,27 @@ const resolvers = {
       }
     },
 
-    //   getProfile: async (parent, args, context) => {
-    //     try {
-    //       const profile = await User.findOne({});
-    //       console.log(profile);
+      getProfile: async (parent, args, context) => {
+        try {
+          const profile = await User.findOne({_id: context.user._id});
+          console.log(profile);
 
-    //       return profile || [];
-    //     } catch (err) {
-    //       console.log(`Error in getAllActivities!: ${err}`);
-    //     }
-    //   },
+          return profile || [];
+        } catch (err) {
+          console.log(`Error in getAllActivities!: ${err}`);
+        }
+      },
+
+    getOrder: async (parent, args, context) => {
+          try {
+            const order = await Order.findOne({_id: context.order_id});
+            console.log(order);
+  
+            return order || [];
+          } catch (err) {
+            console.log(`Error in getOrder!: ${err}`);
+          }
+        },
   },
 
   Mutation: {
@@ -48,25 +59,36 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveActivity: async (parent, { activities }, context) => {
+    saveActivity: async (parent, { activity }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedActivities: activities } },
+          { $addToSet: { savedActivities: activity } },
           { new: true }
         );
         return updatedUser;
       }
       throw new AuthenticationError("Please login to save activity.");
     },
-    removeActivity: async (parent, { name }, context) => {
+    removeActivity: async (parent, { _id }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedActivities: { name: name } } }
+          { $pull: { savedActivities: _id } }
         );
         return updatedUser;
       }
+    },
+    addToOrder: async (parent, { activity }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { orders: [activity] } },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError("Please login to add to order.");
     },
   },
 };
