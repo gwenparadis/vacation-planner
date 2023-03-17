@@ -211,26 +211,22 @@ db.once("open", async () => {
 
   await User.deleteMany();
 
-  await User.create({
-    firstName: "Pamela",
-    lastName: "Washington",
-    username: "pamwashington",
-    email: "pamela@testmail.com",
-    password: "password12345",
-    orders: [
-      {
-        activities: [activities[0]._id, activities[0]._id, activities[1]._id],
-      },
-    ],
-  });
-
-  await User.create({
-    firstName: "Elijah",
-    lastName: "Holt",
-    username: "elijahholt",
-    email: "eholt@testmail.com",
-    password: "password12345",
-  });
+  const users = await User.insertMany(
+    {
+      firstName: "Pamela",
+      lastName: "Washington",
+      username: "pamwashington",
+      email: "pamela@testmail.com",
+      password: "password12345",
+    },
+    {
+      firstName: "Elijah",
+      lastName: "Holt",
+      username: "elijahholt",
+      email: "eholt@testmail.com",
+      password: "password12345",
+    }
+  );
 
   console.log("users seeded");
 

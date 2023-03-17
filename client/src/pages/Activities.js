@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { QUERY_ALL_ACTIVITIES } from "../utils/queries";
 // import { SAVE_ACTIVITY } from "../utils/mutations";
 
@@ -8,13 +8,11 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 const ActivityList = () => {
-  const { loading, data: { getAllActivities = [] } = {} } =
+  const { loading, data: { getActivities = [] } = {} } =
     useQuery(QUERY_ALL_ACTIVITIES);
   //const activities = data?.activities || [];
-  <Button variant="warning display-center" type="submit">
-  Submit
-</Button>
-  if (!getAllActivities.length) {
+
+  if (!getActivities.length) {
     return <h3>No activities available at this time!</h3>;
   }
 
@@ -40,8 +38,8 @@ const ActivityList = () => {
       <Link to="/profile">
         <button className="btn btn-lg btn-danger">View My Intinerary</button>
       </Link>
-      {getAllActivities &&
-        getAllActivities.map((activity) => (
+      {getActivities &&
+        getActivities.map((activity) => (
           <Card key={activity._id}>
             <Card.Img
               variant="top"
