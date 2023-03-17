@@ -43,19 +43,37 @@ function Signup(props) {
         <h2 className="text-center">Signup now! It's quick and easy</h2>
         <Form.Group className="signup-form" controlId="">
           <Form.Label>First name</Form.Label>
-          <Form.Control type="first-name" placeholder="First name" />
+          <input
+            placeholder="First"
+            name="firstName"
+            type="firstName"
+            id="firstName"
+            onChange={handleChange}
+          />
           <Form.Text className="text-muted" onChange={handleChange}>
           </Form.Text>
         </Form.Group>
         <Form.Group className="signup-form" controlId="">
           <Form.Label>Last name</Form.Label>
-          <Form.Control type="Last-name" placeholder="Last name" />
+          <input
+            placeholder="Last"
+            name="lastName"
+            type="lastName"
+            id="lastName"
+            onChange={handleChange}
+          />
           <Form.Text className="text-muted" onChange={handleChange}>
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="youremail@test.com" />
+          <input
+            placeholder="youremail@test.com"
+            name="email"
+            type="email"
+            id="email"
+            onChange={handleChange}
+          />
           <Form.Text className="text-muted" onChange={handleChange}>
           </Form.Text>
           </Form.Group>
@@ -67,7 +85,13 @@ function Signup(props) {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <input
+            placeholder="******"
+            name="password"
+            type="password"
+            id="pwd"
+            onChange={handleChange}
+          />
           <Form.Text className="text-muted" onChange={handleChange}>
           </Form.Text>
         </Form.Group>
