@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { QUERY_ALL_ACTIVITIES } from "../utils/queries";
 // import { SAVE_ACTIVITY } from "../utils/mutations";
 
