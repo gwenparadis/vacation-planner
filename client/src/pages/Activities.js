@@ -11,7 +11,9 @@ const ActivityList = () => {
   const { loading, data: { getAllActivities = [] } = {} } =
     useQuery(QUERY_ALL_ACTIVITIES);
   //const activities = data?.activities || [];
-
+  <Button variant="warning display-center" type="submit">
+  Submit
+</Button>
   if (!getAllActivities.length) {
     return <h3>No activities available at this time!</h3>;
   }
