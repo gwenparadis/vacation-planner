@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const commentSchema = require("./Comment")
+const commentSchema = require("./Comment");
 
 const activitySchema = new Schema({
   name: {
@@ -30,7 +30,7 @@ const activitySchema = new Schema({
     min: 0,
     default: 0,
   },
-  comments: [commentSchema]
+  // comments: [commentSchema]
 });
 
 const Activity = mongoose.model("Activity", activitySchema);

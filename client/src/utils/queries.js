@@ -34,22 +34,17 @@ export const QUERY_ALL_ACTIVITIES = gql`
   }
 `;
 
-export const GET_PROFILE = gql`
-  query Profile {
-    user {
+export const QUERY_PROFILE = gql`
+  query getProfile {
+    getProfile {
       firstName
       lastName
-      orders {
+      email
+      activities {
         _id
-        purchaseDate
-        activities {
-          _id
-          name
-          activityDate
-          price
-          quantity
-          image
-        }
+        name
+        activityDate
+        price
       }
     }
   }

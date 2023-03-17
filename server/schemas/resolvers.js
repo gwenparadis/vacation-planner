@@ -8,7 +8,6 @@ const resolvers = {
     getActivities: async (parent, args, context) => {
       try {
         const activities = await Activity.find({});
-        console.log(activities);
 
         return activities || [];
       } catch (err) {
@@ -18,8 +17,8 @@ const resolvers = {
 
     getProfile: async (parent, args, context) => {
       try {
-        const profile = await User.findOne({ _id: context.user._id });
-        console.log(profile);
+        // TODO: add user id once login functionality enabled
+        const profile = await User.findOne({});
 
         return profile || [];
       } catch (err) {
@@ -27,16 +26,16 @@ const resolvers = {
       }
     },
 
-    getOrder: async (parent, args, context) => {
-      try {
-        const order = await Order.findOne({ _id: context.order_id });
-        console.log(order);
+    //   getOrder: async (parent, args, context) => {
+    //     try {
+    //       const order = await Order.findOne({ _id: context.order_id });
+    //       console.log(order);
 
-        return order || [];
-      } catch (err) {
-        console.log(`Error in getOrder!: ${err}`);
-      }
-    },
+    //       return order || [];
+    //     } catch (err) {
+    //       console.log(`Error in getOrder!: ${err}`);
+    //     }
+    //   },
   },
 
   Mutation: {
@@ -79,17 +78,17 @@ const resolvers = {
         return updatedUser;
       }
     },
-    addToOrder: async (parent, { activity }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { orders: [activity] } },
-          { new: true }
-        );
-        return updatedUser;
-      }
-      throw new AuthenticationError("Please login to add to order.");
-    },
+    // addToOrder: async (parent, { activity }, context) => {
+    //   if (context.user) {
+    //     const updatedUser = await User.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $addToSet: { orders: [activity] } },
+    //       { new: true }
+    //     );
+    //     return updatedUser;
+    //   }
+    //   throw new AuthenticationError("Please login to add to order.");
+    // },
   },
 };
 
