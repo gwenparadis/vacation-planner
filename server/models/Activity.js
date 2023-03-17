@@ -30,7 +30,6 @@ const activitySchema = new Schema({
     min: 0,
     default: 0,
   },
-  // comments: [commentSchema]
 });
 
 const Activity = mongoose.model("Activity", activitySchema);

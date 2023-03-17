@@ -215,14 +215,12 @@ db.once("open", async () => {
     {
       firstName: "Pamela",
       lastName: "Washington",
-      username: "pamwashington",
       email: "pamela@testmail.com",
       password: "password12345",
     },
     {
       firstName: "Elijah",
       lastName: "Holt",
-      username: "elijahholt",
       email: "eholt@testmail.com",
       password: "password12345",
     }

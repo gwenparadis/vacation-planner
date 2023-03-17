@@ -25,17 +25,6 @@ const resolvers = {
         console.log(`Error in getProfile!: ${err}`);
       }
     },
-
-    //   getOrder: async (parent, args, context) => {
-    //     try {
-    //       const order = await Order.findOne({ _id: context.order_id });
-    //       console.log(order);
-
-    //       return order || [];
-    //     } catch (err) {
-    //       console.log(`Error in getOrder!: ${err}`);
-    //     }
-    //   },
   },
 
   Mutation: {
@@ -78,17 +67,6 @@ const resolvers = {
         return updatedUser;
       }
     },
-    // addToOrder: async (parent, { activity }, context) => {
-    //   if (context.user) {
-    //     const updatedUser = await User.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $addToSet: { orders: [activity] } },
-    //       { new: true }
-    //     );
-    //     return updatedUser;
-    //   }
-    //   throw new AuthenticationError("Please login to add to order.");
-    // },
   },
 };
 
