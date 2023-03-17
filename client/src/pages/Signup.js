@@ -8,13 +8,15 @@ import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 
 function Signup(props) {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ username: '', email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log(formState);
     const mutationResponse = await addUser({
       variables: {
+        username: formState.username,
         email: formState.email,
         password: formState.password,
         firstName: formState.firstName,
@@ -42,24 +44,32 @@ function Signup(props) {
         <Form.Group className="signup-form" controlId="">
           <Form.Label>First name</Form.Label>
           <Form.Control type="first-name" placeholder="First name" />
-          <Form.Text className="text-muted">
+          <Form.Text className="text-muted" onChange={handleChange}>
           </Form.Text>
         </Form.Group>
         <Form.Group className="signup-form" controlId="">
           <Form.Label>Last name</Form.Label>
           <Form.Control type="Last-name" placeholder="Last name" />
-          <Form.Text className="text-muted">
+          <Form.Text className="text-muted" onChange={handleChange}>
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="youremail@test.com" />
-          <Form.Text className="text-muted">
+          <Form.Text className="text-muted" onChange={handleChange}>
+          </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicUsername">
+          <Form.Label>Username</Form.Label>
+          <Form.Control type="username" placeholder="Username" />
+          <Form.Text className="text-muted" onChange={handleChange}>
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
+          <Form.Text className="text-muted" onChange={handleChange}>
+          </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Remember me" />
@@ -75,6 +85,7 @@ function Signup(props) {
 
     </div>
   );
-}
+};
+
 
 export default Signup;
