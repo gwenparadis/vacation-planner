@@ -5,7 +5,7 @@ const typeDefs = gql`
     _id: ID
     firstName: String
     lastName: String
-    username: String
+    email: String
   }
 
   type Activity {
@@ -25,18 +25,18 @@ const typeDefs = gql`
     createdAt: String
   }
 
-  type Order {
-    _id: ID
-    purchaseDate: String
-    activities: String
-  }
+  # type Order {
+  #   _id: ID
+  #   purchaseDate: String
+  #   activities: String
+  # }
 
   type Profile {
     _id: ID
     firstName: String
     lastName: String
-    username: String
-    savedActivities: [Activity]
+    email: String
+    activities: [Activity]
   }
 
   type Checkout {
@@ -64,7 +64,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     saveActivity(activity: String!): User
     removeActivity(name: ID!): User
-    addToOrder(activityId: ID!): User
+    # addToOrder(activityId: ID!): User
   }
 `;
 
