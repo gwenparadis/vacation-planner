@@ -46,10 +46,10 @@ function Signup(props) {
           <h2 className="text-center">Signup now! It's quick and easy</h2>
           <Form.Group className="signup-form" controlId="">
             <Form.Label>First name</Form.Label>
-            <input
-              placeholder="First"
+            <input 
+              placeholder="First name"
               name="firstName"
-              type="firstName"
+              type="firstName" className="form-label form-control"
               id="firstName"
               onChange={handleChange}
             />
@@ -61,9 +61,9 @@ function Signup(props) {
           <Form.Group className="signup-form" controlId="">
             <Form.Label>Last name</Form.Label>
             <input
-              placeholder="Last"
+              placeholder="Last name"
               name="lastName"
-              type="lastName"
+              type="lastName" className="form-label form-control"
               id="lastName"
               onChange={handleChange}
             />
@@ -77,18 +77,10 @@ function Signup(props) {
             <input
               placeholder="youremail@test.com"
               name="email"
-              type="email"
+              type="email" className="form-label form-control"
               id="email"
               onChange={handleChange}
             />
-            <Form.Text
-              className="text-muted"
-              onChange={handleChange}
-            ></Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicUsername">
-            <Form.Label>Username</Form.Label>
-            <Form.Control type="username" placeholder="Username" />
             <Form.Text
               className="text-muted"
               onChange={handleChange}
@@ -99,7 +91,7 @@ function Signup(props) {
             <input
               placeholder="******"
               name="password"
-              type="password"
+              type="password" className="form-label form-control"
               id="pwd"
               onChange={handleChange}
             />
