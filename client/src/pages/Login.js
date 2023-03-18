@@ -43,7 +43,7 @@ function Login(props) {
             <input
               placeholder="youremail@test.com"
               name="email"
-              type="email"
+              type="email" className="form-label form-control"
               id="email"
               onChange={handleChange}
             />
@@ -56,7 +56,7 @@ function Login(props) {
             <input
               placeholder="******"
               name="password"
-              type="password"
+              type="password" className="form-label form-control"
               id="pwd"
               onChange={handleChange}
             />
