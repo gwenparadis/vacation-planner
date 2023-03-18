@@ -9,7 +9,6 @@ import Card from "react-bootstrap/Card";
 
 function Signup(props) {
   const [formState, setFormState] = useState({
-    username: "",
     email: "",
     password: "",
   });
@@ -81,14 +80,6 @@ function Signup(props) {
               id="email"
               onChange={handleChange}
             />
-            <Form.Text
-              className="text-muted"
-              onChange={handleChange}
-            ></Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicUsername">
-            <Form.Label>Username</Form.Label>
-            <Form.Control type="username" placeholder="Username" />
             <Form.Text
               className="text-muted"
               onChange={handleChange}
