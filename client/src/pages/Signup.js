@@ -48,7 +48,7 @@ function Signup(props) {
             <input
               placeholder="First"
               name="firstName"
-              type="firstName"
+              type="firstName" className="form-label form-control"
               id="firstName"
               onChange={handleChange}
             />
@@ -62,7 +62,7 @@ function Signup(props) {
             <input
               placeholder="Last"
               name="lastName"
-              type="lastName"
+              type="lastName" className="form-label form-control"
               id="lastName"
               onChange={handleChange}
             />
@@ -76,7 +76,7 @@ function Signup(props) {
             <input
               placeholder="youremail@test.com"
               name="email"
-              type="email"
+              type="email" className="form-label form-control"
               id="email"
               onChange={handleChange}
             />
@@ -90,7 +90,7 @@ function Signup(props) {
             <input
               placeholder="******"
               name="password"
-              type="password"
+              type="password" className="form-label form-control"
               id="pwd"
               onChange={handleChange}
             />
