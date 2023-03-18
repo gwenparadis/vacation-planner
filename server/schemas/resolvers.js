@@ -14,6 +14,15 @@ const resolvers = {
         console.log(`Error in activities!: ${err}`);
       }
     },
+    getUsers: async (parent, args, context) => {
+      try {
+        const users = await User.find({});
+
+        return users || [];
+      } catch (err) {
+        console.log(`Error in users!: ${err}`);
+      }
+    },
 
     getProfile: async (parent, args, context) => {
       try {
@@ -29,14 +38,15 @@ const resolvers = {
 
   Mutation: {
     addUser: async (parent, args) => {
+      console.log(args);
       const user = await User.create(args);
       const token = signToken(user);
 
       return { token, user };
     },
 
-    login: async (parent, { username, password }) => {
-      const user = await User.findOne({ username });
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
       if (!user) {
         throw new AuthenticationError("Invalid login");
       }

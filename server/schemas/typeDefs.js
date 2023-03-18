@@ -52,6 +52,7 @@ const typeDefs = gql`
     getActivities: [Activity]
     getProfile: Profile
     getOrder: [Activity]
+    getUsers: [User]
   }
 
   type Mutation {
