@@ -65,7 +65,7 @@ const typeDefs = gql`
     ): Auth
     login(email: String!, password: String!): Auth
     saveActivity(activity: String!): User
-    removeActivity(name: ID!): User
+    removeActivity(id: ID!): User
     # addToOrder(activityId: ID!): User
   }
 `;
