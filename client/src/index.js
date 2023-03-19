@@ -4,10 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import PWAPrompt from 'react-ios-pwa-prompt';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <PWAPrompt
+      promptOnVisit = {1}
+      timesToShow={3}
+      copyClosePrompt = "Close"
+      permanentlyHideOnDismiss={false}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
