@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ALL_ACTIVITIES } from "../utils/queries";
 // import { SAVE_ACTIVITY } from "../utils/mutations";
-
+import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
@@ -34,40 +34,44 @@ const ActivityList = () => {
   // };
 
   return (
-    <div>
-      <Link to="/profile">
-        <button className="btn btn-lg btn-danger">View My Intinerary</button>
-      </Link>
-      {getActivities &&
-        getActivities.map((activity) => (
-          <Card key={activity._id}>
-            <Card.Img
-              variant="top"
-              src={process.env.PUBLIC_URL + "/images/" + activity.image}
-            />
-            <Card.Body>
-              <Card.Title>{activity.name}</Card.Title>
-              <Card.Text>{activity.description}</Card.Text>
-              <Card.Text>
-                Activity Time: {activity.activityDate}
-                Price: ${activity.price}
-                Tickets Remaining: {activity.quantity}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <Button
-                // onClick={() => handleActivity()}
-                variant="primary"
-                size="lg"
-                active
-              >
-                Save Activity to My Itinerary
-              </Button>
-            </Card.Footer>
-          </Card>
-        ))}
-    </div>
-  );
+    <Container className='activity'>
+      <div className='section-heading container'>
+        <div className='d-flex flex-wrap justify-content-evenly'>
+          {getActivities &&
+            getActivities.map((activity) => (
+              <Card key={activity._id} style={{ width: '18rem' }}>
+                <Link to="/profile">
+                  <button className="btn btn-lg btn-danger">View My Activities</button>
+                </Link>
+                <Card.Img
+                  variant="top"
+                  src={process.env.PUBLIC_URL + "/images/" + activity.image}
+                />
+                <Card.Body>
+                  <Card.Title>{activity.name}</Card.Title>
+                  <Card.Text>{activity.description}</Card.Text>
+                  <Card.Text>
+                    Activity Time: {activity.activityDate}
+                    Price: ${activity.price}
+                    Tickets Remaining: {activity.quantity}
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  <Button
+                    // onClick={() => handleActivity()}
+                    variant="primary"
+                    size="lg"
+                    active
+                  >
+                    Save Activity to My Itinerary
+                  </Button>
+                </Card.Footer>
+              </Card>
+            ))}
+        </div>
+        </div>
+        </Container>
+        );
 };
 
-export default ActivityList;
+        export default ActivityList;
