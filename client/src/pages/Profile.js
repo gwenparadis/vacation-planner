@@ -1,3 +1,6 @@
+//when data properly flows from the db we can comment out
+//lines 13-40 (useState) and reactivate lines 41-47 (GraphQL)
+
 import Table from "react-bootstrap/Table";
 import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
@@ -31,14 +34,14 @@ function Profile() {
               </tr>
             </thead>
             <tbody>
-              {/* {user.activities.map((activity) => (
-                <tr key={activity.id}>
+              {user.savedActivities.map((activity) => (
+                <tr key={activity._id}>
                   <td>{activity.name}</td>
                   <td colSpan={2}>{activity.description}</td>
                   <td>{activity.activityDate}</td>
                   <td>{activity.price}</td>
                 </tr>
-              ))} */}
+              ))}
             </tbody>
           </Table>
         </Card.Body>
