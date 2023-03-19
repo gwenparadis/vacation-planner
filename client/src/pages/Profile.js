@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import { useQuery } from "@apollo/client";
 import { QUERY_PROFILE } from "../utils/queries";
+import { REMOVE_ACTIVITY } from "../utils/mutations";
 import Card from "react-bootstrap/Card";
 
 function Profile() {
