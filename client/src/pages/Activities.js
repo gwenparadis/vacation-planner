@@ -34,16 +34,21 @@ const ActivityList = () => {
   // };
 
   return (
-    <Container className="activity">
-      <div className="section-heading container">
-        <div className="d-flex flex-wrap justify-content-evenly">
+
+    <div className='activity'>
+      <div className='section-heading container '>
+        <div className='d-flex flex-wrap justify-content-evenly'>
+
+
           {getActivities &&
             getActivities.map((activity) => (
               <Card key={activity._id} style={{ width: "18rem" }}>
                 <Link to="/profile">
+
                   <button className="btn btn-lg btn-danger">
                     View My Activities
                   </button>
+
                 </Link>
                 <Card.Img
                   variant="top"
@@ -57,11 +62,13 @@ const ActivityList = () => {
                     Price: ${activity.price}
                     Tickets Remaining: {activity.quantity}
                   </Card.Text>
+                  <button className="btn btn-md btn-info">View My Activities</button>
                 </Card.Body>
                 <Card.Footer>
+                  
                   <Button
                     // onClick={() => handleActivity()}
-                    variant="primary"
+                    variant="warning"
                     size="lg"
                     active
                   >
@@ -71,9 +78,15 @@ const ActivityList = () => {
               </Card>
             ))}
         </div>
+
+        </div>
       </div>
-    </Container>
+        );
+=======
+      </div>
+
   );
+
 };
 
 export default ActivityList;
