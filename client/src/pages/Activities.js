@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ALL_ACTIVITIES } from "../utils/queries";
 // import { SAVE_ACTIVITY } from "../utils/mutations";
-import Container from "react-bootstrap/Container";
+// import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
@@ -45,9 +45,6 @@ const ActivityList = () => {
               <Card key={activity._id} style={{ width: "18rem" }}>
                 <Link to="/profile">
 
-                  <button className="btn btn-lg btn-danger">
-                    View My Activities
-                  </button>
 
                 </Link>
                 <Card.Img
@@ -82,10 +79,6 @@ const ActivityList = () => {
         </div>
       </div>
         );
-=======
-      </div>
-
-  );
 
 };
 
