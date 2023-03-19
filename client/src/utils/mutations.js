@@ -11,20 +11,20 @@ export const LOGIN = gql`
   }
 `;
 
-export const ADD_ORDER = gql`
-  mutation addOrder($activities: [ID]!) {
-    addOrder(activities: $activities) {
-      purchaseDate
-      activities {
-        _id
-        name
-        activityDate
-        price
-        quantity
-      }
-    }
-  }
-`;
+// export const ADD_ORDER = gql`
+//   mutation addOrder($activities: [ID]!) {
+//     addOrder(activities: $activities) {
+//       purchaseDate
+//       activities {
+//         _id
+//         name
+//         activityDate
+//         price
+//         quantity
+//       }
+//     }
+//   }
+// `;
 
 export const ADD_USER = gql`
   mutation addUser(
@@ -52,7 +52,7 @@ export const SAVE_ACTIVITY = gql`
     $_id: String!
     $name: String!
     $activityDate: String!
-    $price: Number
+    $price: Int!
   ) {
     saveActivity(
       _id: $_id

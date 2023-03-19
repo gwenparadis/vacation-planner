@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ALL_ACTIVITIES } from "../utils/queries";
 import { SAVE_ACTIVITY } from "../utils/mutations";
 // import Container from "react-bootstrap/Container";
@@ -12,16 +12,14 @@ const ActivityList = () => {
     useQuery(QUERY_ALL_ACTIVITIES);
   // const activities = data?.activities || [];
 
-  if (!getActivities.length) {
-    return <h3>No activities available at this time!</h3>;
-  }
+  
   
   const [saveActivity, { error, data }] = useMutation(SAVE_ACTIVITY);
 
   const handleActivity = async (activity) => {
-    activity.preventDefault();
+    console.log("Hello", activity)
       try {
-       await saveAnswers({
+       await saveActivity({
       variables: {
         _id: activity._id,
         name: activity.name,
@@ -34,7 +32,6 @@ const ActivityList = () => {
           }
         };
       
-}
 
     // Retrieves the user token from localStorage
     // const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -50,6 +47,9 @@ const ActivityList = () => {
   //         }
   // };
 
+  if (!getActivities.length) {
+    return <h3>No activities available at this time!</h3>;
+  }
 
   return (
     <div className="activity">
@@ -75,7 +75,7 @@ const ActivityList = () => {
                 </Card.Body>
                 <Card.Footer>
                   <Button
-                    onClick={() => handleActivity()}
+                    onClick={() => handleActivity(activity)}
                     variant="warning"
                     size="lg"
                     active
@@ -90,6 +90,6 @@ const ActivityList = () => {
     </div>
   );
           
-  
+            }
 
 export default ActivityList;

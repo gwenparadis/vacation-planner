@@ -4,7 +4,7 @@
 import Table from "react-bootstrap/Table";
 import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_PROFILE } from "../utils/queries";
 import { REMOVE_ACTIVITY } from "../utils/mutations";
 import Card from "react-bootstrap/Card";
@@ -16,6 +16,10 @@ function Profile() {
   if (loading) {
     return <h3>Loading user data!</h3>;
   }
+// const [removeActivity] = useMutation(REMOVE_ACTIVITY);
+// const handleRemove = async (event) => {
+//   event.preventDefault();
+//   const 
 
   return (
     <Container className="profile">
@@ -50,4 +54,5 @@ function Profile() {
     </Container>
   );
 }
+
 export default Profile;

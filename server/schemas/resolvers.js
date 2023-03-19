@@ -57,11 +57,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveActivity: async (parent, { activity }, context) => {
+    saveActivity: async (parent, { _id, name, activityDate, price }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedActivities: activity } },
+          { $addToSet: { savedActivities: { _id, name, activityDate, price }} },
           { new: true }
         );
         return updatedUser;
