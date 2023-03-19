@@ -83,20 +83,11 @@
       padding: 1%;
     }
 
-  .activities{
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    align-items: center;
-    color: black;
-    background-image: url("./images/Dance.jpg");   
-  }
+  .activity{
+    background-image: url("./images/activity.jpg");  
+    padding-top: 50px;
+    padding-right: 10px;
+    padding-bottom: 50px;
+    padding-left: 60px;
 
-  /* .activity{
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    align-items: center;
-    color: black;
-    background-image: url("./images/Dance.jpg"); 
-  } */
+  }
