@@ -211,20 +211,34 @@ db.once("open", async () => {
 
   await User.deleteMany();
 
-  const users = await User.insertMany(
-    {
-      firstName: "Pamela",
-      lastName: "Washington",
-      email: "pamela@testmail.com",
-      password: "password12345",
-    },
-    {
-      firstName: "Elijah",
-      lastName: "Holt",
-      email: "eholt@testmail.com",
-      password: "password12345",
-    }
-  );
+  const users = await User.insertMany({
+    firstName: "Pamela",
+    lastName: "Washington",
+    email: "pamela@testmail.com",
+    password: "password12345",
+    savedActivities: [
+      {
+        _id: "6415f36125f6948818411d76",
+        activityDate: "1684170000000",
+        description:
+          "Rent one of our pool-side Cabanas for up to 6 hours! Great for couples or groups looking to reserve a shady spot by one of our three Salt Water pools.",
+        image: "",
+        name: "Cabana Rental",
+        price: 250,
+        quantity: 20,
+      },
+      {
+        _id: "6415f36125f6948818411d77",
+        activityDate: "1684170000000",
+        description:
+          "Join us for a relaxing 30-minute morning yoga session by the pool. Yoga mats provided",
+        image: "",
+        name: "Vinyasa Flow",
+        price: 10,
+        quantity: 15,
+      },
+    ],
+  });
 
   console.log("users seeded");
 

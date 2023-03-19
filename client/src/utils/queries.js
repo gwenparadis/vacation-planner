@@ -40,7 +40,7 @@ export const QUERY_PROFILE = gql`
       firstName
       lastName
       email
-      activities {
+      savedActivities {
         _id
         name
         activityDate
