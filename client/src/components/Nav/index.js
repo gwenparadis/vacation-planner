@@ -33,9 +33,6 @@ function Nav() {
           <li className="mx-4">
             <Link to="/activities">Activities</Link>
           </li>
-          <li className="mx-4">
-            <Link to="/profile">Profile</Link>
-          </li>
         </ul>
       );
     }

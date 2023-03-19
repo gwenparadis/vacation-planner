@@ -6,6 +6,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
+    savedActivities: [Activity]
   }
 
   type Activity {
@@ -36,7 +37,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    activities: [Activity]
+    savedActivities: [Activity]
   }
 
   type Checkout {
