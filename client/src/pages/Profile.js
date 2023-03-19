@@ -15,6 +15,7 @@ function Profile() {
   if (loading) {
     return <h3>Loading user data!</h3>;
   }
+  
 
   return (
     <Container className="profile">

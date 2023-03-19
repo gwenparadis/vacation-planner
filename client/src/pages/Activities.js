@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ALL_ACTIVITIES } from "../utils/queries";
-// import { SAVE_ACTIVITY } from "../utils/mutations";
+import { SAVE_ACTIVITY } from "../utils/mutations";
 // import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -10,29 +10,45 @@ import Button from "react-bootstrap/Button";
 const ActivityList = () => {
   const { loading, data: { getActivities = [] } = {} } =
     useQuery(QUERY_ALL_ACTIVITIES);
-  //const activities = data?.activities || [];
+  // const activities = data?.activities || [];
 
   if (!getActivities.length) {
     return <h3>No activities available at this time!</h3>;
   }
+  
+  const [saveActivity, { error, data }] = useMutation(SAVE_ACTIVITY);
 
-  // const [saveActivity, { error }] = useMutation(SAVE_ACTIVITY);
-
-  // const handleActivity = async (activity) => {
-  //   try {
-  //     await saveActivity({
-  //       variables: {
-  //         _id: activity._id,
-  //         name: activity.name,
-  //         activityDate: activity.activityDate,
-  //         price: activity.price,
-  //       },
-  //     });
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
+  const handleActivity = async (activity) => {
+    activity.preventDefault();
+      try {
+       await saveAnswers({
+      variables: {
+        _id: activity._id,
+        name: activity.name,
+        activityDate: activity.activityDate,
+        price: activity.price,
+        }
+        });
+      } catch (err) {
+            console.error(err);
+          }
+        };
+      
+}
+    // Retrieves the user token from localStorage
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    if (!token) {
+          return false;
+        
+        // try {
+        //   const response = async saveActivity(activity, token);
+    
+  //         if (!response.ok) {
+  //           throw new Error("Unable to save activity");
+  //         }
   // };
 
+    
   return (
 
     <div className='activity'>
@@ -64,7 +80,7 @@ const ActivityList = () => {
                 <Card.Footer>
                   
                   <Button
-                    // onClick={() => handleActivity()}
+                    onClick={() => handleActivity()}
                     variant="warning"
                     size="lg"
                     active
