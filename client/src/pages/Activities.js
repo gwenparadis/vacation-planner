@@ -6,6 +6,7 @@ import { SAVE_ACTIVITY } from "../utils/mutations";
 // import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 const ActivityList = () => {
   const { loading, data: { getActivities = [] } = {} } =
@@ -16,6 +17,7 @@ const ActivityList = () => {
   
   const [saveActivity, { error, data }] = useMutation(SAVE_ACTIVITY);
 
+  const navigate = useNavigate(); 
   const handleActivity = async (activity) => {
     console.log("Hello", activity)
       try {
@@ -27,11 +29,15 @@ const ActivityList = () => {
         price: activity.price,
         }
         });
+        // navigate("/login");
       } catch (err) {
-            console.error(err);
+        // return redirect("/login");  
+        navigate("/error", { state: { message: "Login to save activity" } }); 
+        console.error(err);
           }
         };
       
+        //useNavigate
 
     // Retrieves the user token from localStorage
     // const token = Auth.loggedIn() ? Auth.getToken() : null;
