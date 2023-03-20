@@ -67,3 +67,25 @@ export const SAVE_ACTIVITY = gql`
     }
   }
 `;
+
+export const REMOVE_ACTIVITY = gql`
+mutation removeActivity($id: ID!) {
+  removeActivity(id: $id) {
+    _id
+    email
+    firstName
+    lastName
+    savedActivities {
+      _id
+      activityDate
+      image
+      name
+      description
+      comments {
+        commentText
+        createdAt
+      }
+    }
+  }
+}
+`;
