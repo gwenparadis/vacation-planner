@@ -69,22 +69,23 @@ export const SAVE_ACTIVITY = gql`
 `;
 
 export const REMOVE_ACTIVITY = gql`
-  mutation removeActivity(
-    $_id: String!
-    $name: String!
-    $activityDate: String!
-    $price: Number
-  ) {
-    saveActivity(
-      _id: $_id
-      name: $name
-      activityDate: $activityDate
-      price: $price
-    ) {
+mutation removeActivity($id: ID!) {
+  removeActivity(id: $id) {
+    _id
+    email
+    firstName
+    lastName
+    savedActivities {
       _id
-      name
       activityDate
-      price
+      image
+      name
+      description
+      comments {
+        commentText
+        createdAt
+      }
     }
   }
+}
 `;

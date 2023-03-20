@@ -11,15 +11,26 @@ import Card from "react-bootstrap/Card";
 
 function Profile() {
   const { loading, data } = useQuery(QUERY_PROFILE);
+  const [removeActivity, { error }] = useMutation(REMOVE_ACTIVITY)
   const user = data?.getProfile;
 
   if (loading) {
     return <h3>Loading user data!</h3>;
   }
+<<<<<<< HEAD
 // const [removeActivity] = useMutation(REMOVE_ACTIVITY);
 // const handleRemove = async (event) => {
 //   event.preventDefault();
 //   const 
+=======
+  console.log(user)
+
+  const handleDelete = (id) => {
+    const { data } = removeActivity({ variables: { id } })
+    console.log(data)
+    window.location.reload()
+  }
+>>>>>>> main
 
   return (
     <Container className="profile">
@@ -45,6 +56,7 @@ function Profile() {
                   <td colSpan={2}>{activity.description}</td>
                   <td>{activity.activityDate}</td>
                   <td>{activity.price}</td>
+                  <td><button onClick={() => handleDelete(activity._id)}>Remove Activity</button></td>
                 </tr>
               ))}
             </tbody>

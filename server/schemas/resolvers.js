@@ -68,13 +68,20 @@ const resolvers = {
       }
       throw new AuthenticationError("Please login to save activity.");
     },
-    removeActivity: async (parent, { _id }, context) => {
+    removeActivity: async (parent, { id }, context) => {
+      console.log(id,"Remove activity",context.user._id)
       if (context.user) {
+        try{
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedActivities: _id } }
+          { $pull: { savedActivities: id } },{new:true}
         );
+        console.log(updatedUser)
         return updatedUser;
+        }catch(err){
+          console.log(err)
+          res.json(err)
+        }
       }
     },
   },
