@@ -8,7 +8,6 @@ export const QUERY_ACTIVITY = gql`
       description
       price
       quantity
-      image
     }
   }
 `;

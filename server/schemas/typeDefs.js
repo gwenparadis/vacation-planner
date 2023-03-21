@@ -10,27 +10,13 @@ const typeDefs = gql`
   }
 
   type Activity {
-    _id: ID
+    _id: ID!
     name: String
     description: String
-    image: String
     activityDate: String
     price: Int
     quantity: Int
-    comments: Comment
   }
-
-  type Comment {
-    _id: ID
-    commentText: String
-    createdAt: String
-  }
-
-  # type Order {
-  #   _id: ID
-  #   purchaseDate: String
-  #   activities: String
-  # }
 
   type Profile {
     _id: ID
@@ -52,7 +38,6 @@ const typeDefs = gql`
   type Query {
     getActivities: [Activity]
     getProfile: Profile
-    getOrder: [Activity]
     getUsers: [User]
   }
 
@@ -66,7 +51,6 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     saveActivity(activity: String!): User
     removeActivity(id: ID!): User
-    # addToOrder(activityId: ID!): User
   }
 `;
 
