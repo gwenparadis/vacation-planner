@@ -67,10 +67,6 @@ const ActivityList = () => {
             getActivities.map((activity) => (
               <Card key={activity._id} style={{ width: "18rem" }}>
                 <Link to="/profile"></Link>
-                <Card.Img
-                  variant="top"
-                  src={process.env.PUBLIC_URL + "/images/" + activity.image}
-                />
                 <Card.Body>
                   <Card.Title>{activity.name}</Card.Title>
                   <Card.Text>{activity.description}</Card.Text>
