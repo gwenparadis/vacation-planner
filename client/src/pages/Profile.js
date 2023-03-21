@@ -26,7 +26,7 @@ function Profile() {
   };
 
   return (
-    <Container className="profile">
+    <div className="profile">
       <Card className="userChoices" key={user._id}>
         <Card.Title>
           {user.firstName} {user.lastName}
@@ -60,7 +60,7 @@ function Profile() {
           </Table>
         </Card.Body>
       </Card>
-    </Container>
+    </div>
   );
 }
 export default Profile;
