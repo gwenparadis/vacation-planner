@@ -79,7 +79,7 @@ const resolvers = {
         try {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $pull: { savedActivities: id } },
+            { $pull: { savedActivities: {_id: id} }},
             { new: true }
           );
           console.log(updatedUser);

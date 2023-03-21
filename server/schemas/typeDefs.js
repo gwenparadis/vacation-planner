@@ -56,7 +56,7 @@ const typeDefs = gql`
       activityDate: String!
       price: Int!
   ): Activity
-    removeActivity(name: ID!): User
+    removeActivity(id: ID!): User
     # addToOrder(activityId: ID!): User
   }
 `;

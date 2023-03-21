@@ -80,7 +80,7 @@ const ActivityList = () => {
                 <Card.Footer>
                    <Button  
                     onClick={() => handleActivity(activity)}
-                    variant="warning"
+                    variant="info"
                     size="lg"
                     active
                     disabled={!profileData?.getProfile?.firstName}
