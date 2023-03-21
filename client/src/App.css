@@ -72,8 +72,7 @@
     justify-content: center;
     height: 100vh;
     align-items: center;
-    color: black;
-    background-image: url("./images/Spa.jpg");
+    background-image: url("./images/profile.jpg");
      }
 
     .userChoices{
