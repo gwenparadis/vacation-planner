@@ -35,7 +35,6 @@ const typeDefs = gql`
     user: User
   }
 
-
   type Query {
     getActivities: [Activity]
     getProfile: Profile
@@ -55,9 +54,8 @@ const typeDefs = gql`
       name: String!
       activityDate: String!
       price: Int!
-  ): Activity
+    ): Activity
     removeActivity(id: ID!): User
-    # addToOrder(activityId: ID!): User
   }
 `;
 

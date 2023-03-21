@@ -1,13 +1,5 @@
 import { useReducer } from "react";
-import {
-  UPDATE_ACTIVITIES,
-  ADD_TO_CART,
-  UPDATE_CART_QUANTITY,
-  REMOVE_FROM_CART,
-  ADD_MULTIPLE_TO_CART,
-  CLEAR_CART,
-  TOGGLE_CART,
-} from "./actions";
+import { UPDATE_ACTIVITIES } from "./actions";
 
 // The reducer is a function that accepts the current state and an action. It returns a new state based on that action.
 export const reducer = (state, action) => {

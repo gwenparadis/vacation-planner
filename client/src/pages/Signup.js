@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 
@@ -48,7 +47,8 @@ function Signup(props) {
             <input
               placeholder="First"
               name="firstName"
-              type="firstName" className="form-label form-control"
+              type="firstName"
+              className="form-label form-control"
               id="firstName"
               onChange={handleChange}
             />
@@ -62,7 +62,8 @@ function Signup(props) {
             <input
               placeholder="Last"
               name="lastName"
-              type="lastName" className="form-label form-control"
+              type="lastName"
+              className="form-label form-control"
               id="lastName"
               onChange={handleChange}
             />
@@ -76,7 +77,8 @@ function Signup(props) {
             <input
               placeholder="youremail@test.com"
               name="email"
-              type="email" className="form-label form-control"
+              type="email"
+              className="form-label form-control"
               id="email"
               onChange={handleChange}
             />
@@ -90,7 +92,8 @@ function Signup(props) {
             <input
               placeholder="******"
               name="password"
-              type="password" className="form-label form-control"
+              type="password"
+              className="form-label form-control"
               id="pwd"
               onChange={handleChange}
             />
