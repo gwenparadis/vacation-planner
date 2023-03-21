@@ -1,17 +1,5 @@
 import { gql } from "@apollo/client";
 
-// export const QUERY_ACTIVITY = gql`
-//   query Activity($name: ID) {
-//     activity(name: $name) {
-//       _id
-//       name
-//       description
-//       price
-//       quantity
-//     }
-//   }
-// `;
-
 export const QUERY_CHECKOUT = gql`
   query getCheckout($activities: [ID]!) {
     checkout(activities: $activities) {

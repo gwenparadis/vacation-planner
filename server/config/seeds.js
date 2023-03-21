@@ -94,9 +94,9 @@ db.once("open", async () => {
       quantity: 50,
     },
     {
-      name: "90-minute Full Body Massage",
+      name: "90-minute Couples Massage",
       description:
-        "Come relax at our on-site Spa. Full-service includes your choice of 60-minute Couples massage, and access to our newly renovated locker rooms. Refreshments are available for additional purchase",
+        "Come relax at our on-site Spa. Full-service includes your choice of 90-minute Couples massage, and access to our newly renovated locker rooms. Refreshments are available for additional purchase",
       activityDate: "12:30pm - March 25, 2023",
       price: 250,
       quantity: 50,

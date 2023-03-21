@@ -35,7 +35,6 @@ function Login(props) {
   return (
     <div className="login">
       <Card className="m-2 p-5" style={{ width: "38rem" }}>
-        {/* <Link to="/signup">← Go to Signup</Link> */}
         <h2 className="text-center">Welcome Back!</h2>
         <form className="login-form" onSubmit={handleFormSubmit}>
           <Form.Group className="mb-3 col-auto" controlId="formBasicEmail">
@@ -43,7 +42,8 @@ function Login(props) {
             <input
               placeholder="youremail@test.com"
               name="email"
-              type="email" className="form-label form-control"
+              type="email"
+              className="form-label form-control"
               id="email"
               onChange={handleChange}
             />
@@ -56,7 +56,8 @@ function Login(props) {
             <input
               placeholder="******"
               name="password"
-              type="password" className="form-label form-control"
+              type="password"
+              className="form-label form-control"
               id="pwd"
               onChange={handleChange}
             />
