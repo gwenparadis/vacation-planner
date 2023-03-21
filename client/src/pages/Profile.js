@@ -17,12 +17,6 @@ function Profile() {
   if (loading) {
     return <h3>Loading user data!</h3>;
   }
-<<<<<<< HEAD
-// const [removeActivity] = useMutation(REMOVE_ACTIVITY);
-// const handleRemove = async (event) => {
-//   event.preventDefault();
-//   const 
-=======
   console.log(user)
 
   const handleDelete = (id) => {
@@ -30,7 +24,6 @@ function Profile() {
     console.log(data)
     window.location.reload()
   }
->>>>>>> main
 
   return (
     <Container className="profile">

@@ -12,7 +12,6 @@ const ActivityList = () => {
   const { loading, data: { getActivities = [] } = {} } =
     useQuery(QUERY_ALL_ACTIVITIES);
   // const activities = data?.activities || [];
-<<<<<<< HEAD
 
   
   
@@ -22,7 +21,7 @@ const ActivityList = () => {
   const handleActivity = async (activity) => {
     console.log("Hello", activity)
       try {
-       await saveActivity({
+      await saveActivity({
       variables: {
         _id: activity._id,
         name: activity.name,
@@ -31,71 +30,21 @@ const ActivityList = () => {
         }
         });
         // navigate("/login");
-      } catch (err) {
+        } catch (err) {
         // return redirect("/login");  
-        navigate("/error", { state: { message: "Login to save activity" } }); 
+        navigate("/login", { state: { message: "Login to save activity" } }); 
         console.error(err);
           }
         };
-      
-        //useNavigate
-
-    // Retrieves the user token from localStorage
-    // const token = Auth.loggedIn() ? Auth.getToken() : null;
-    // if (!token) {
-    //     return false;
-    // }
   
-        // try {
-        //   const response = async saveActivity(activity, token);
+      // saveActivity.push(variables);
+    // localStorage.setItem('id_token', JSON.stringify(saveActivity));
+    // alert('Activity saved successfully');
     
-  //         if (!response.ok) {
-  //           throw new Error("Unable to save activity");
-  //         }
-  // };
-=======
->>>>>>> main
-
   if (!getActivities.length) {
     return <h3>No activities available at this time!</h3>;
   }
-  
-  const [saveActivity, { error, data }] = useMutation(SAVE_ACTIVITY);
 
-<<<<<<< HEAD
-=======
-  const handleActivity = async (activity) => {
-    activity.preventDefault();
-      try {
-       await saveAnswers({
-      variables: {
-        _id: activity._id,
-        name: activity.name,
-        activityDate: activity.activityDate,
-        price: activity.price,
-        }
-        });
-      } catch (err) {
-            console.error(err);
-          }
-        };
-      
-}
-    // Retrieves the user token from localStorage
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
-    if (!token) {
-          return false;
-        
-        // try {
-        //   const response = async saveActivity(activity, token);
-    
-  //         if (!response.ok) {
-  //           throw new Error("Unable to save activity");
-  //         }
-  // };
-
-    
->>>>>>> main
   return (
     <div className="activity">
       <div className="section-heading container ">
@@ -119,12 +68,8 @@ const ActivityList = () => {
                   {/* <button className="btn btn-md btn-info">View My Activities</button> */}
                 </Card.Body>
                 <Card.Footer>
-                  <Button
-<<<<<<< HEAD
-                    onClick={() => handleActivity(activity)}
-=======
-                    onClick={() => handleActivity()}
->>>>>>> main
+                   <Button  
+                    onClick={() => handleActivity(activity._id)}
                     variant="warning"
                     size="lg"
                     active
