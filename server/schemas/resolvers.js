@@ -27,8 +27,8 @@ const resolvers = {
     getProfile: async (parent, { id }, context) => {
       if (context.user) {
         try {
-          const profile = await User.findOne({ _id: context.user._id });
-
+          const profile = await User.findOne({ _id: context.user._id }).populate('savedActivities')
+          console.log(profile)
           return profile || [];
         } catch (err) {
           console.log(`Error in getProfile!: ${err}`);
@@ -58,24 +58,28 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveActivity: async (parent, { activity }, context) => {
+    saveActivity: async (parent, { _id, name, activityDate, price }, context) => {
       if (context.user) {
+        try {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedActivities: activity } },
+          { $addToSet: { savedActivities: { _id, name, activityDate, price }} },
           { new: true }
         );
         return updatedUser;
-      }
+      } catch (err) {
+        console.log(err)
+    } 
       throw new AuthenticationError("Please login to save activity.");
-    },
+    }
+  },
     removeActivity: async (parent, { id }, context) => {
       console.log(id, "Remove activity", context.user._id);
       if (context.user) {
         try {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $pull: { savedActivities: id } },
+            { $pull: { savedActivities: {_id: id} }},
             { new: true }
           );
           console.log(updatedUser);

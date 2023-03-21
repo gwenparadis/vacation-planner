@@ -33,8 +33,18 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_ACTIVITY = gql`
-  mutation saveActivity($_id: ID!) {
-    saveActivity(_id: $_id) {
+  mutation saveActivity(
+    $_id: String!
+    $name: String!
+    $activityDate: String!
+    $price: Int!
+  ) {
+    saveActivity(
+      _id: $_id
+      name: $name
+      activityDate: $activityDate
+      price: $price
+    ) {
       _id
       name
       activityDate

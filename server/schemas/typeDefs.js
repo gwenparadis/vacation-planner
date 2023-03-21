@@ -35,6 +35,7 @@ const typeDefs = gql`
     user: User
   }
 
+
   type Query {
     getActivities: [Activity]
     getProfile: Profile
@@ -49,8 +50,14 @@ const typeDefs = gql`
       password: String!
     ): Auth
     login(email: String!, password: String!): Auth
-    saveActivity(activity: String!): User
+    saveActivity(
+      _id: String!
+      name: String!
+      activityDate: String!
+      price: Int!
+  ): Activity
     removeActivity(id: ID!): User
+    # addToOrder(activityId: ID!): User
   }
 `;
 

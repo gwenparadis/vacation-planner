@@ -2,28 +2,44 @@
 //lines 13-40 (useState) and reactivate lines 41-47 (GraphQL)
 
 import Table from "react-bootstrap/Table";
-import React from "react";
+import {useEffect, useState} from "react";
 import Container from "react-bootstrap/Container";
 import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_PROFILE } from "../utils/queries";
 import { REMOVE_ACTIVITY } from "../utils/mutations";
 import Card from "react-bootstrap/Card";
 
+
 function Profile() {
-  const { loading, data } = useQuery(QUERY_PROFILE);
+  const [activities,setactivites]=useState ([])
+  const { loading, data } = useQuery(QUERY_PROFILE, {
+    pollInterval: 500
+  });
   const [removeActivity, { error }] = useMutation(REMOVE_ACTIVITY);
   const user = data?.getProfile;
+
+useEffect(()=>{
+  if (data){
+    console.log (data)
+    setactivites(data?.getProfile?.savedActivities)
+  }
+},[data?.getProfile?.savedActivities])
 
   if (loading) {
     return <h3>Loading user data!</h3>;
   }
   console.log(user);
 
-  const handleDelete = (id) => {
-    const { data } = removeActivity({ variables: { id } });
-    console.log(data);
-    window.location.reload();
+  const handleDelete = async (id) => {
+   try{
+    const { data } = await removeActivity({ variables: { id } });
+    setactivites(data?.removeActivity?.savedActivities)
+  } catch (err){
+    console.error (err)
+  }
   };
+
+  
 
   return (
     <div className="profile">
@@ -43,7 +59,7 @@ function Profile() {
               </tr>
             </thead>
             <tbody>
-              {user.savedActivities.map((activity) => (
+              {activities.map((activity) => (
                 <tr key={activity._id}>
                   <td>{activity.name}</td>
                   <td colSpan={2}>{activity.description}</td>
@@ -63,4 +79,5 @@ function Profile() {
     </div>
   );
 }
+
 export default Profile;
