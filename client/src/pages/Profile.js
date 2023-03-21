@@ -25,6 +25,8 @@ function Profile() {
     window.location.reload()
   }
 
+  
+
   return (
     <div className="profile">
       <Card className="userChoices" key={user._id}>
