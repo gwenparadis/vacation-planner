@@ -11,21 +11,6 @@ export const LOGIN = gql`
   }
 `;
 
-export const ADD_ORDER = gql`
-  mutation addOrder($activities: [ID]!) {
-    addOrder(activities: $activities) {
-      purchaseDate
-      activities {
-        _id
-        name
-        activityDate
-        price
-        quantity
-      }
-    }
-  }
-`;
-
 export const ADD_USER = gql`
   mutation addUser(
     $firstName: String!
