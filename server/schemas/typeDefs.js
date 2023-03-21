@@ -10,7 +10,7 @@ const typeDefs = gql`
   }
 
   type Activity {
-    _id: ID
+    _id: ID!
     name: String
     description: String
     activityDate: String
