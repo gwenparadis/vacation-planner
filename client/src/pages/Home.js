@@ -19,8 +19,8 @@ const Home = () => {
           Welcome to your dream vacation!
         </Alert>
       ) : (
-        <Button variant="primary" size="lg">
-          Click here to plan your stay!
+        <Button variant="info" size="lg">
+          <a href="/activities">Click here to plan your stay!</a>
         </Button>
       )}
     </div>
