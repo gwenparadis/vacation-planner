@@ -7,7 +7,7 @@ const Home = () => {
     function () {
       setTimeout(function () {
         setDisplayButton(false);
-      }, 4000);
+      }, 2000);
     },
     [displayButton]
   );
@@ -20,7 +20,9 @@ const Home = () => {
         </Alert>
       ) : (
         <Button variant="info" size="lg">
-          <a href="/activities">Click here to plan your stay!</a>
+          <a href="/login">
+            Click here to log in and customize your itinerary!
+          </a>
         </Button>
       )}
     </div>
