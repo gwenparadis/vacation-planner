@@ -16,11 +16,10 @@ const ActivityList = () => {
 
   const [saveActivity, { error, data }] = useMutation(SAVE_ACTIVITY);
 
-  const navigate = useNavigate();
   const handleActivity = async (activity) => {
     try {
       if (!profileData?.getProfile?.firstName) {
-        navigate("/login", { state: { message: "Login to save activity" } });
+        alert("Log in to save activities to your itinerary!");
         return;
       }
       await saveActivity({
@@ -31,7 +30,7 @@ const ActivityList = () => {
           price: activity.price,
         },
       });
-      alert("Saved successfully");
+      alert("Saved successfully. View your profile to see your itinerary.");
     } catch (err) {
       console.log(err);
       alert("Something went wrong. Call adminstrator");
@@ -66,8 +65,6 @@ const ActivityList = () => {
                     onClick={() => handleActivity(activity)}
                     variant="info"
                     size="lg"
-                    active
-                    disabled={!profileData?.getProfile?.firstName}
                   >
                     Save Activity to My Itinerary
                   </Button>
