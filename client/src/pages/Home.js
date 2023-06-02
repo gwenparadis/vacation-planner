@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Alert, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [displayButton, setDisplayButton] = useState(true);
@@ -20,9 +21,7 @@ const Home = () => {
         </Alert>
       ) : (
         <Button variant="info" size="lg">
-          <a href="/login">
-            Click here to log in and customize your itinerary!
-          </a>
+          <Link to="/login">Log in to customize your itinerary!</Link>
         </Button>
       )}
     </div>
